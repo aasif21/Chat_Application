@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.chat_application"
+    namespace = "com.example.redchat"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.chat_application"
+        applicationId = "com.example.redchat"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -17,6 +17,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force ("androidx.appcompat:appcompat:1.4.1") // Use the latest stable version
+            force ("androidx.appcompat:appcompat-resources:1.4.1")
         }
     }
 
@@ -67,29 +74,60 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Navigation for Compose
-    implementation ("androidx.navigation:navigation-compose:2.7.1")
-
-    // ViewModel in Compose
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-
-    // For ViewModel
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-
-    // Kotlin Coroutines
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
     // Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // Retrofit with Kotlin serialization
-    implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+// OkHttp
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
 
-    // OkHttp
-    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
+// OkHttp Logging Interceptor
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
-    // OkHttp Logging Interceptor
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+// Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
 
+// Flow
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+
+// Navigation in Compose
+    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha10")
+
+// ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-alpha07")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+
+// Compose UI
+    implementation ("androidx.compose.ui:ui:1.0.1")
+    implementation ("androidx.compose.material:material:1.0.1")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.0.1")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.0.1")
+
+// Paging
+    implementation ("androidx.paging:paging-runtime:3.1.1")
+    implementation ("androidx.paging:paging-compose:1.0.0-alpha14")
+
+// Lottie Animation
+    implementation("com.airbnb.android:lottie-compose:4.0.0")
+
+    // Splashscreen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
+    // Coil
+    implementation ("io.coil-kt:coil-compose:2.1.0")
+
+    implementation ("androidx.compose.material3:material3:1.2.1")
+    implementation ("androidx.compose.material3:material3-window-size-class:1.2.1")
+    implementation ("androidx.compose.material3:material3-adaptive-navigation-suite:1.3.0-rc01")
+
+    // Socket IO
+    implementation ("io.socket:socket.io-client:2.0.0")
+
+    // Gson
+    implementation ("com.google.code.gson:gson:2.8.8")
+
+    // Paging 3 library
+    implementation ("androidx.paging:paging-runtime:3.1.1")
 }
